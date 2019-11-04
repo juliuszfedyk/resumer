@@ -1,0 +1,73 @@
+<form class="editor-basics" [formGroup]="basicsFormGroup" *ngIf="basicsFormGroup">
+  <div class="container">
+    <h3>Basics</h3>
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <label for="basics-name">Name</label>
+        <input formControlName="name" type="email" class="form-control" id="basics-name" placeholder="Name">
+        <small id="basics-nameHelp" class="form-text text-muted">Please enter your name</small>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="basics-label">Label</label>
+        <input formControlName="label" type="text" class="form-control" id="basics-label"
+               placeholder="e.g. Web Developer">
+        <small id="basics-label-help" class="form-text text-muted">What are you....?</small>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="basics-image">Image</label>
+        <input formControlName="image" type="text" class="form-control" id="basics-image" placeholder="http://">
+        <small id="basics-image-" class="form-text text-muted">Url to an image of yourself</small>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="basics-email">Email address</label>
+        <input formControlName="email" type="text" class="form-control" id="basics-email" placeholder="http://">
+        <small id="basics-email-help" class="form-text text-muted">Your email address, it will be visible on your
+          resume.</small>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="basics-phone">Phone number</label>
+        <input formControlName="image" type="text" class="form-control" id="basics-phone" placeholder="+99">
+        <small id="basics-image-help" class="form-text text-muted">Url to an image of yourself</small>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="basics-url">Url</label>
+        <input formControlName="url" type="text" class="form-control" id="basics-url" placeholder="http://">
+        <small id="basics-url-help" class="form-text text-muted">Url to your website, LinkedIn profile, e.t.c.</small>
+      </div>
+      <div class="form-group col-sm-12">
+        <label for="basics-summary">Summary</label>
+        <textarea formControlName="summary" class="form-control" id="basics-summary" rows="3"></textarea>
+        <small id="basics-summary-help" class="form-text text-muted">Url to your website, LinkedIn profile,
+          e.t.c.</small>
+      </div>
+    </div>
+    <h3>Location</h3>
+    <div class="basics-location row" formGroupName="location">
+      <div class="form-group col-sm-6">
+        <label for="basics-location-address">Address</label>
+        <input formControlName="address" type="text" class="form-control" id="basics-location-address" placeholder="">
+        <small id="basics-location-address-help" class="form-text text-muted"></small>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="basics-location-postalCode">Postal Code</label>
+        <input formControlName="postalCode" type="text" class="form-control" id="basics-location-postalCode"
+               placeholder="">
+        <small id="basics-location-postalCode-help" class="form-text text-muted"></small>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="basics-location-city">City</label>
+        <input formControlName="city" type="text" class="form-control" id="basics-location-city" placeholder="">
+        <small id="basics-location-city-help" class="form-text text-muted"></small>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="basics-location-country">Country</label>
+        <input formControlName="countryCode" type="text" class="form-control" id="basics-location-country"
+               placeholder="">
+        <small id="basics-location-country-help" class="form-text text-muted"></small>
+      </div>
+    </div>
+    <div class="row">
+      <app-profiles class="col-12" formControlName="profiles"></app-profiles>
+    </div>
+  </div>
+</form>

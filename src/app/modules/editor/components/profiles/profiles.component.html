@@ -1,0 +1,32 @@
+<div class="basics-profiles__heading">
+  <h3>Profiles</h3>
+  <button type="button" class="btn btn-light basics-profiles__add-profile" id="add-profile-button"
+          (click)="addProfile()">add</button>
+</div>
+<form [formGroup]="profilesFormGroup">
+  <div class="basics-profiles card my-2" *ngFor="let profile of profiles.controls; let index = index"
+       [formGroup]="getProfile(index)">
+    <div class="card-body row">
+      <div class="form-group col-sm-3">
+        <label for="basics-profiles__network">Network</label>
+        <input formControlName="network" type="text" class="form-control" id="basics-profiles__network"
+               placeholder="i.e. Twitter">
+      </div>
+      <div class="form-group col-sm-3">
+        <label for="basics-profiles__username">Username</label>
+        <input formControlName="username" type="text" class="form-control" id="basics-profiles__username"
+               placeholder="Your username here">
+      </div>
+      <div class="form-group col-sm-4">
+        <label for="basics-profiles__url">Url</label>
+        <input formControlName="url" type="text" class="form-control" id="basics-profiles__url"
+               placeholder="i.e. Twitter">
+      </div>
+      <div class="basics-profiles__remove form-group col-sm-2">
+        <button type="button" class="btn btn-light" [id]="'remove-profile-button-' + index" (click)="removeProfile(index)">
+          <span class="oi oi-trash"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

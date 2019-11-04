@@ -1,0 +1,14 @@
+$media-breakpoints: (
+  "extra-small": "max-width: 576px",
+  "small": "min-width: 576px",
+  "medium": "min-width: 768px",
+  "large": "max-width: 992px",
+  "extra-large": "min-width: 1200px",
+);
+
+@mixin media-breakpoint($breakpoint) {
+  @media screen and (#{map-get($media-breakpoints, $breakpoint)}) {
+  @content;
+}
+};
+

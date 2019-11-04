@@ -1,0 +1,20 @@
+<div class="editor">
+  <div id="editor__sidenav" class="editor__sidenav" [ngClass]="{'editor__sidenav--open': sideNavOpen}">
+    <ul class="nav flex-column nav-pills m-3">
+      <li *ngFor="let sideMenuItem of resumeSections" class="nav-item">
+        <a class="nav-link" [routerLink]="[sideMenuItem.url]" routerLinkActive="active">{{ sideMenuItem.title}}</a>
+      </li>
+    </ul>
+    <div class="editor__sidenav__close-on-mobile m-3">
+      <button (click)="sideNavOpen = false" type="button" class="btn btn-light" id="close-side-menu">
+        close
+      </button>
+    </div>
+  </div>
+  <div class="editor__content p-3">
+    <button (click)="sideNavOpen = !sideNavOpen" type="button" class="btn btn-light" id="toggle-side-menu">
+      <span class="oi oi-menu" title="menu" aria-hidden="true"></span>
+    </button>
+    <router-outlet></router-outlet>
+  </div>
+</div>

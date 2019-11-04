@@ -1,0 +1,12 @@
+.basics-profiles {
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  &__remove {
+    display: flex;
+    flex-direction: column-reverse;
+
+  }
+}
