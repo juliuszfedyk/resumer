@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { EditorComponent } from './components/editor/editor.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BasicsComponent } from './components/basics/basics.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LocationComponent } from './components/location/location.component';
 import { ProfilesComponent } from './components/profiles/profiles.component';
 import { SharedModule } from '@app/shared/shared.module';
+import { CountryInputComponent } from './components/country-input/country-input.component';
 
 
 const routes: Routes = [
@@ -18,9 +19,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [EditorComponent, BasicsComponent, LocationComponent, ProfilesComponent],
+  declarations: [EditorComponent, BasicsComponent, LocationComponent, ProfilesComponent, CountryInputComponent],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     SharedModule

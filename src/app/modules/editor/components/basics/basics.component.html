@@ -20,7 +20,7 @@
       </div>
       <div class="form-group col-sm-6">
         <label for="basics-email">Email address</label>
-        <input formControlName="email" type="text" class="form-control" id="basics-email" placeholder="http://">
+        <input formControlName="email" type="text" class="form-control" id="basics-email" placeholder="">
         <small id="basics-email-help" class="form-text text-muted">Your email address, it will be visible on your
           resume.</small>
       </div>
@@ -59,11 +59,8 @@
         <input formControlName="city" type="text" class="form-control" id="basics-location-city" placeholder="">
         <small id="basics-location-city-help" class="form-text text-muted"></small>
       </div>
-      <div class="form-group col-sm-6">
-        <label for="basics-location-country">Country</label>
-        <input formControlName="countryCode" type="text" class="form-control" id="basics-location-country"
-               placeholder="">
-        <small id="basics-location-country-help" class="form-text text-muted"></small>
+      <div class="col-sm-6">
+        <app-country-input formControlName="countryCode"></app-country-input>
       </div>
     </div>
     <div class="row">
