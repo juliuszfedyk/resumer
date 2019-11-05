@@ -12,7 +12,6 @@ import { Basics } from '@models/basics.model';
 @Component({
   selector: 'app-profiles',
   template: '',
-  styles: [''],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => MockProfilesComponent),
@@ -30,6 +29,27 @@ class MockProfilesComponent implements ControlValueAccessor {
   }
 }
 
+@Component({
+  selector: 'app-country-input',
+  template: '',
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => MockCountryInputComponent),
+    multi: true
+  }]
+})
+class MockCountryInputComponent implements ControlValueAccessor {
+  registerOnChange(fn: any): void {
+  }
+
+  registerOnTouched(fn: any): void {
+  }
+
+  writeValue(obj: any): void {
+  }
+
+}
+
 class MockResumeService {
   getBasics() {
     return of(emptyResume.basics);
@@ -43,7 +63,7 @@ describe('BasicsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [BasicsComponent, MockProfilesComponent],
+      declarations: [BasicsComponent, MockProfilesComponent, MockCountryInputComponent],
       providers: [{ provide: ResumeService, useClass: MockResumeService}],
       imports: [ReactiveFormsModule],
     })

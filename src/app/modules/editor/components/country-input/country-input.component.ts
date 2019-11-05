@@ -18,24 +18,30 @@ import { Country } from '@models/country.model';
 export class CountryInputComponent implements ControlValueAccessor, OnDestroy {
   searching = false;
   searchFailed = false;
-  countries: Country[];
-  onChange: (value: string) => {};
-  onTouched: (value: string) => {};
+  onChange: (value: string) => any;
+  onTouched: (value: string) => any;
+  private countries: Country[];
   private countriesSubscription: Subscription;
 
   constructor(private countriesService: CountriesService) {
   }
 
-  private _country: Country;
+  // tslint:disable-next-line:variable-name
+  private _countryName: string;
 
-  get country(): Country {
-    return this._country;
+  get countryName(): string {
+    return this._countryName;
   }
 
-  set country(country: Country) {
-    if (country) {
-      this._country = country;
-      this.onChange(country.alpha2Code);
+  set countryName(countryName: string) {
+    this._countryName = countryName;
+    if (countryName) {
+      const countryCode = this.countries.find((country: Country) => country.name = countryName).alpha2Code;
+      if (countryCode) {
+        this.onChange(countryCode);
+      } else {
+        this._countryName = null;
+      }
     }
   }
 
@@ -45,8 +51,9 @@ export class CountryInputComponent implements ControlValueAccessor, OnDestroy {
       distinctUntilChanged(),
       map(term => {
         return term.length < 2 ? [] : this.countries
+          .filter((country: Country) => country.name.toLowerCase().includes(term.toLowerCase()))
           .map((country: Country) => country.name)
-          .filter((countryName: string) => countryName.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10);
+          .slice(0, 10);
       }));
   };
 
@@ -60,13 +67,15 @@ export class CountryInputComponent implements ControlValueAccessor, OnDestroy {
 
   writeValue(countryCode: string): void {
     if (this.countries && countryCode) {
-      this.country = this.countries.find((country: Country) => country.alpha2Code = countryCode);
+      this.countryName = this.countries.find((country: Country) => country.alpha2Code = countryCode).name;
     } else if (!this.countriesSubscription) {
       this.countriesSubscription = this.countriesService.getCountries$()
         .subscribe(
           (countries: Country[]) => {
             this.countries = countries;
-            this.country = this.countries.find((country: Country) => country.alpha2Code = countryCode);
+            if (countryCode) {
+              this.countryName = this.countries.find((country: Country) => country.alpha2Code = countryCode).name;
+            }
           }
         );
     }
