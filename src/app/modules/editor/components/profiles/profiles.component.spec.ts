@@ -81,4 +81,15 @@ describe('ProfilesComponent', () => {
       expect(profile.get('network').value).toBe('LinkedIn');
     });
   });
+  describe('registerOnChange', () => {
+    it('should subscribe to value changes of profiles', () => {
+      let changes;
+      component.writeValue([]);
+      component.registerOnChange((profiles: Profile[]) => {
+        changes = profiles;
+      });
+      component.addProfile();
+      expect(changes).toBeTruthy();
+    });
+  });
 });
