@@ -15,5 +15,6 @@ export const emptyResume = {
       region: null
     },
     profiles: []
-  }
+  },
+  work: []
 };

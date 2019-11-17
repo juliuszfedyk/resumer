@@ -1,0 +1,120 @@
+<form [formGroup]="experienceFormGroup" *ngIf="experienceFormGroup">
+  <div class="container">
+    <div class="row">
+      <div class="form-group col-sm-12">
+        <label for="work-position">Position:</label>
+        <input
+          formControlName="position"
+          type="text"
+          class="form-control"
+          id="work-position"
+        />
+        <small id="work-position-help" class="form-text text-muted"
+          >Your position at the company.</small
+        >
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="work-entity">{{ entityLabel | titlecase }}:</label>
+        <input
+          [formControlName]="entityLabel"
+          type="text"
+          class="form-control"
+          id="work-entity"
+          aria-label="company or organization"
+        />
+        <small id="work-entity-help" class="form-text text-muted"
+          >{{ entityLabel | titlecase }} you worked for.</small
+        >
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="work-url">Url:</label>
+        <input
+          formControlName="url"
+          type="text"
+          class="form-control"
+          id="work-url"
+        />
+        <small id="work-url-help" class="form-text text-muted"
+          >Link to the {{ entityLabel }}'s website.</small
+        >
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="work-startDate">Start date:</label>
+        <input
+          formControlName="startDate"
+          type="text"
+          class="form-control"
+          id="work-startDate"
+        />
+        <small id="work-startDate-help" class="form-text text-muted"
+          >When have you started working there.</small
+        >
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="work-endDate">End date:</label>
+        <input
+          formControlName="endDate"
+          type="text"
+          class="form-control"
+          id="work-endDate"
+        />
+        <small id="work-endDate-help" class="form-text text-muted"
+          >When did you finish working there. Leave empty if you still
+          are</small
+        >
+      </div>
+      <div class="form-group col-sm-12">
+        <label for="work-summary">Summary</label>
+        <textarea
+          formControlName="summary"
+          class="form-control"
+          id="work-summary"
+          rows="3"
+        ></textarea>
+        <small id="work-summary-help" class="form-text text-muted"
+          >Give an overview of your responsibilities at the
+          {{ entityLabel }}</small
+        >
+      </div>
+      <div class="work__highlights-heading d-flex justify-content-between w-100">
+        <h4>Highlights</h4>
+        <button
+          type="button"
+          class="btn btn-light work-highlight__add-profile"
+          id="add-highlight-button"
+          (click)="addHighlightControl()"
+        >
+          add
+        </button>
+      </div>
+      <div class="form-group col-sm-12 work__highlights">
+        <small id="work-highlights-help" class="form-text text-muted"
+          >e.g. Increased profits by 20% from 2011-2012 through viral
+          advertising</small
+        >
+        <div
+          class="highlight input-group my-4"
+          *ngFor="let highlight of highlightsFormArray.controls; let index = index"
+        >
+          <textarea
+            [formControl]="getHighlightControl(index)"
+            class="form-control"
+            [id]="'highlight-' + index"
+            rows="3"
+            [attr.aria-label]="'highlight-' + index"
+          ></textarea>
+          <div class="input-group-append">
+            <button
+              class="btn btn-light"
+              (click)="highlightsFormArray.removeAt(index)"
+              type="button"
+              [id]="'highlight-' + index + '-remove-button'"
+            >
+              <span class="oi oi-trash"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

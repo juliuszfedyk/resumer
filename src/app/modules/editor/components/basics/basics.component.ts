@@ -23,7 +23,7 @@ export class BasicsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscriptions.add(
-      this.resumeService.getBasics()
+      this.resumeService.getBasics$()
         .pipe(
           switchMap((basics: Basics) => {
             const basicsFormGroup = this.fb.group({

@@ -51,7 +51,7 @@ class MockCountryInputComponent implements ControlValueAccessor {
 }
 
 class MockResumeService {
-  getBasics() {
+  getBasics$() {
     return of(emptyResume.basics);
   }
   setBasics(valueChanges: Basics) {}
@@ -82,7 +82,7 @@ describe('BasicsComponent', () => {
   describe('OnInit', () => {
     it('should call the ResumeService getBasics()', async(() => {
       const resumeService = fixture.debugElement.injector.get(ResumeService);
-      const spy = spyOn(resumeService, 'getBasics').and.callThrough();
+      const spy = spyOn(resumeService, 'getBasics$').and.callThrough();
       fixture.whenStable().then(() => {
         expect(spy).toHaveBeenCalled();
       });
