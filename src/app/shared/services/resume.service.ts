@@ -3,7 +3,7 @@ import { Resume } from '@models/resume.model';
 import { Basics } from '@models/basics.model';
 import { Observable, of } from 'rxjs';
 import { emptyResume } from '@app/shared/defaults/empty-resume';
-import { Work } from '@models/experience.model';
+import { Volunteer, Work } from '@models/experience.model';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +27,15 @@ export class ResumeService {
     return of([...this.resume.work]);
   }
 
-  setWork(work: Work[]) {
-    this.resume = { ...this.resume, work };
+  setWork(workList: Work[]) {
+    this.resume = { ...this.resume, work: workList };
+  }
+
+  getVolunteer$(): Observable<Volunteer[]> {
+    return of({ ...this.resume.volunteer });
+  }
+
+  setVolunteer(volunteerList: Volunteer[]) {
+    this.resume = { ...this.resume, volunteer: volunteerList };
   }
 }

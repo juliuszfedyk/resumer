@@ -16,5 +16,6 @@ export const emptyResume = {
     },
     profiles: []
   },
-  work: []
+  work: [],
+  volunteer: []
 };

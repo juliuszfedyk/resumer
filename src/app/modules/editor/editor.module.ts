@@ -10,6 +10,7 @@ import { ProfilesComponent } from './components/profiles/profiles.component';
 import { CountryInputComponent } from './components/country-input/country-input.component';
 import { WorkComponent } from './components/work/work.component';
 import { ExperienceComponent } from './components/experience/experience.component';
+import { VolunteerComponent } from '@app/modules/editor/components/volunteer/volunteer.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
     children: [
       { path: 'basics', component: BasicsComponent },
       { path: 'work', component: WorkComponent },
+      { path: 'volunteer', component: VolunteerComponent },
     ],
   },
 ];
@@ -30,6 +32,7 @@ const routes: Routes = [
     ProfilesComponent,
     CountryInputComponent,
     WorkComponent,
+    VolunteerComponent,
     ExperienceComponent,
   ],
   imports: [

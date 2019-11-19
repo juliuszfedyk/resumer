@@ -10,6 +10,7 @@ export class EditorComponent {
   resumeSections = [
     { title: 'Basics', url: 'basics' },
     { title: 'Work', url: 'work' },
+    { title: 'Volunteer', url: 'volunteer' },
     { title: 'Education', url: 'education' },
     { title: 'Awards', url: 'awards' },
     { title: 'Publications', url: 'publications' },
