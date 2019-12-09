@@ -46,7 +46,7 @@ const mockActivatedRoute = {
   },
 };
 
-fdescribe('AccordionListComponent', () => {
+describe('AccordionListComponent', () => {
   let component: AccordionListComponent;
   let fixture: ComponentFixture<AccordionListComponent>;
 
