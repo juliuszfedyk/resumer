@@ -1,4 +1,8 @@
-<form [formGroup]="experienceFormGroup" *ngIf="experienceFormGroup">
+<form
+  [formGroup]="experienceFormGroup"
+  *ngIf="experienceFormGroup"
+  class="experience"
+>
   <div class="container">
     <div class="row">
       <div class="form-group col-sm-12">
@@ -76,7 +80,9 @@
           {{ entityLabel }}</small
         >
       </div>
-      <div class="work__highlights-heading d-flex justify-content-between w-100">
+      <div
+        class="work__highlights-heading d-flex justify-content-between w-100"
+      >
         <h4>Highlights</h4>
         <button
           type="button"
@@ -94,7 +100,10 @@
         >
         <div
           class="highlight input-group my-4"
-          *ngFor="let highlight of highlightsFormArray.controls; let index = index"
+          *ngFor="
+            let highlight of highlightsFormArray.controls;
+            let index = index
+          "
         >
           <textarea
             [formControl]="getHighlightControl(index)"

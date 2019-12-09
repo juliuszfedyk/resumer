@@ -1,0 +1,43 @@
+<button
+  type="button"
+  class="btn btn-light accordion-list__add-item"
+  id="add-item-button"
+  (click)="addItem()"
+>
+  add
+</button>
+<div class="mt-4">
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel
+      *ngFor="let item of items; let index = index; trackBy: trackByFn"
+      [id]="'ngb-panel-' + index"
+    >
+      <ng-template ngbPanelHeader let-opened="opened">
+        <div class="d-flex align-items-center justify-content-between accordion-list__panel-header">
+          <button class="btn btn-lg btn-link p-0 accordion-list__panel-toggle-button" ngbPanelToggle>
+            {{ getTitle(item) }}
+          </button>
+          <button
+            type="button"
+            class="btn btn-light"
+            [id]="'remove-item-button-' + index"
+            (click)="items.splice(i, 1)"
+          >
+            <span class="oi oi-trash"></span>
+          </button>
+        </div>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <app-experience *ngIf="path !== 'education'"
+          [(experience)]="item"
+          (experienceChange)="updateItem(item, index)"
+        ></app-experience>
+        <app-education *ngIf="path === 'education'"
+          [(education)]="item"
+          (educationChange)="updateItem(item, index)"
+        >
+        </app-education>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>

@@ -4,12 +4,13 @@ import { Basics } from '@models/basics.model';
 import { Observable, of } from 'rxjs';
 import { emptyResume } from '@app/shared/defaults/empty-resume';
 import { Volunteer, Work } from '@models/experience.model';
+import { Education } from '@models/education.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ResumeService {
-  resume: Resume;
+  private resume: Resume;
 
   constructor() {
     this.resume = { ...emptyResume };
@@ -32,10 +33,18 @@ export class ResumeService {
   }
 
   getVolunteer$(): Observable<Volunteer[]> {
-    return of({ ...this.resume.volunteer });
+    return of([ ...this.resume.volunteer ]);
   }
 
   setVolunteer(volunteerList: Volunteer[]) {
     this.resume = { ...this.resume, volunteer: volunteerList };
+  }
+
+  getEducation$(): Observable<Education[]> {
+    return of([ ...this.resume.education ]);
+  }
+
+  setEducation(education: Education[]) {
+    this.resume = { ...this.resume, education };
   }
 }

@@ -12,7 +12,6 @@ describe('ResumeService', () => {
         providers: [ResumeService]
       });
       service = TestBed.get(ResumeService);
-      console.log(service.resume.basics.name);
     }
   );
 

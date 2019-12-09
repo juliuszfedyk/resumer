@@ -8,9 +8,9 @@ import { BasicsComponent } from './components/basics/basics.component';
 import { LocationComponent } from './components/location/location.component';
 import { ProfilesComponent } from './components/profiles/profiles.component';
 import { CountryInputComponent } from './components/country-input/country-input.component';
-import { WorkComponent } from './components/work/work.component';
 import { ExperienceComponent } from './components/experience/experience.component';
-import { VolunteerComponent } from '@app/modules/editor/components/volunteer/volunteer.component';
+import { AccordionListComponent } from './components/accordion-list/accordion-list.component';
+import { EducationComponent } from './components/education/education.component';
 
 const routes: Routes = [
   {
@@ -18,8 +18,9 @@ const routes: Routes = [
     component: EditorComponent,
     children: [
       { path: 'basics', component: BasicsComponent },
-      { path: 'work', component: WorkComponent },
-      { path: 'volunteer', component: VolunteerComponent },
+      { path: 'work', component: AccordionListComponent },
+      { path: 'volunteer', component: AccordionListComponent },
+      { path: 'education', component: AccordionListComponent },
     ],
   },
 ];
@@ -31,9 +32,9 @@ const routes: Routes = [
     LocationComponent,
     ProfilesComponent,
     CountryInputComponent,
-    WorkComponent,
-    VolunteerComponent,
     ExperienceComponent,
+    AccordionListComponent,
+    EducationComponent,
   ],
   imports: [
     CommonModule,

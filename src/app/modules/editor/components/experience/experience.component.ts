@@ -57,7 +57,10 @@ export class ExperienceComponent implements OnChanges, OnDestroy {
         if (key === 'highlights') {
           this.highlights = currentExperience.highlights;
         } else {
-          this.experienceFormGroup.get(key).patchValue(currentExperience[key]);
+          const keyControl = this.experienceFormGroup.get(key);
+          if (keyControl) {
+            keyControl.patchValue(currentExperience[key]);
+          }
         }
       });
       this.experienceFormGroup.patchValue(changes.experience.currentValue);
