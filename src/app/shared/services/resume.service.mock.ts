@@ -80,6 +80,6 @@ export const mockEducationList: Education[] = [
     startDate: '2014-02-02',
     endDate: '2017-06-01',
     gpa: '100',
-    courses: ['carrying buildings', 'stopping trains', 'inner sensitivity'],
+    courses: ['sewing and knitting', 'making coffee', 'radioactive 101'],
   },
 ];

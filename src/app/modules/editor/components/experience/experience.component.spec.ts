@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { mockWorkList } from '@app/shared/services/resume.service.mock';
 import { SimpleChange, SimpleChanges } from '@angular/core';
 import { Experience } from '@models/experience.model';
+import { appTestUtils } from '@tests/test-utils';
 
 describe('ExperienceComponent', () => {
   let component: ExperienceComponent;
@@ -63,11 +64,12 @@ describe('ExperienceComponent', () => {
         expect(component.experienceFormGroup).toBeFalsy();
         component.ngOnChanges(mockChanges);
         expect(component.experienceFormGroup).toBeTruthy();
-        workProps.forEach(propName => {
-          expect(component.experienceFormGroup.get(propName).value).toEqual(
-            mockExperience[propName]
-          );
-        });
+        appTestUtils.compareModelToFormGroup(
+          mockExperience,
+          component.experienceFormGroup,
+          workProps,
+          expect
+        );
       });
     });
     describe('if the change is not the first change', () => {

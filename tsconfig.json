@@ -14,6 +14,7 @@
       "@app/*": [
         "src/app/*"
       ],
+      "@tests/*": ["tests/*"],
       "@models/*": [
         "src/app/shared/models/*"
       ]

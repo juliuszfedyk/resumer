@@ -51,10 +51,6 @@ export class EducationComponent implements OnChanges, OnDestroy {
     }
   }
 
-  getCourseControl(index: number): FormControl {
-    return this.coursesFormArray.at(index) as FormControl;
-  }
-
   addCourseControl() {
     this.coursesFormArray.push(this.fb.control(null));
   }
